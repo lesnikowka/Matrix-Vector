@@ -68,15 +68,17 @@ Matrix& Matrix:: operator=(const Matrix& matr) {
 
 Matrix Matrix:: operator+(const Matrix& matr) {
 	Matrix result(m, n);
-	for (int i = 0; i < m; i++)
-		result.data[i] = data[i] + matr.data[i];
+	if(m == matr.m && n == matr.n)
+		for (int i = 0; i < m; i++)
+			result.data[i] = data[i] + matr.data[i];
 	return result;
 }
 
 Matrix Matrix:: operator-(const Matrix& matr) {
 	Matrix result(m, n);
-	for (int i = 0; i < m; i++)
-		result.data[i] = data[i] - matr.data[i];
+	if (m == matr.m && n == matr.n)
+		for (int i = 0; i < m; i++)
+			result.data[i] = data[i] - matr.data[i];
 	return result;
 }
 
@@ -111,7 +113,7 @@ Matrix Matrix:: operator-() {
 }
 
 bool Matrix:: operator==(const Matrix& matr) {
-	if (m != matr.m || n != matr.n)
+	if (m != matr.m && n != matr.n)
 		return false;
 	for (int i = 0; i < m; i++)
 		if (data[i] != matr.data[i])
@@ -120,7 +122,7 @@ bool Matrix:: operator==(const Matrix& matr) {
 }
 
 bool Matrix:: operator!=(const Matrix& matr) {
-	if (m != matr.m || n != matr.n)
+	if (m != matr.m && n != matr.n)
 		return true;
 	for (int i = 0; i < m; i++)
 		if (data[i] != matr.data[i])
