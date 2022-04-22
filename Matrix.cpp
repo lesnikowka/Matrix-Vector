@@ -52,8 +52,8 @@ Matrix Matrix:: operator*(const Matrix& matr) {
 	Matrix result = Matrix(m, matr.n);
 	if (n == matr.m)
 		for (int i = 0; i < m; i++)
-			for (int j = 0; j < matr.n; j++)
-				for (int k = 0; k < n; k++)
+			for (int k = 0; k < n; k++)
+				for (int j = 0; j < matr.n; j++)
 					result[i][j] += data[i][k] * matr.data[k][j];
 	return result;
 }
@@ -86,8 +86,8 @@ Matrix& Matrix:: operator*=(const Matrix& matr) {
 	Matrix result = Matrix(m, matr.n);
 	if (n == matr.m)
 		for (int i = 0; i < m; i++)
-			for (int j = 0; j < matr.n; j++)
-				for (int k = 0; k < n; k++)
+			for (int k = 0; k < n; k++)
+				for (int j = 0; j < matr.n; j++)
 					result[i][j] += data[i][k] * matr.data[k][j];
 	*this = result;
 	return *this;
