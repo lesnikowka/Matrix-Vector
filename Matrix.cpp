@@ -122,12 +122,7 @@ bool Matrix:: operator==(const Matrix& matr) {
 }
 
 bool Matrix:: operator!=(const Matrix& matr) {
-	if (m != matr.m || n != matr.n)
-		return true;
-	for (int i = 0; i < m; i++)
-		if (data[i] != matr.data[i])
-			return true;
-	return false;
+	return !(*this == matr);
 }
 
 void Matrix::resize(int new_m, int new_n) {
